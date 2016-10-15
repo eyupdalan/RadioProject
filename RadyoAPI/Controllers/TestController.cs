@@ -15,10 +15,10 @@ namespace RadyoAPI.Controllers
             ClientService<IRadyo> service = new ClientService<IRadyo>();
             string ret = service.Proxy.IsServiceAwake();
 
-
-
+            int[] arr = new int[] { 1, 2, 4 };
             return new
             {
+                arr = arr,
                 data = ret
             };
 
