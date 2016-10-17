@@ -11,10 +11,9 @@ namespace RadyoServis
     // NOTE: In order to launch WCF Test Client for testing this service, please select Radyo.svc or Radyo.svc.cs at the Solution Explorer and start debugging.
     public class Radyo : IRadyo
     {
-
-        public string IsServiceAwake()
+        public bool IsServiceAwake()
         {
-            return "Ayaktayım";
+            return true;
         }
     }
 }

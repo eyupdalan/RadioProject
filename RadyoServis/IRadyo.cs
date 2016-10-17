@@ -12,6 +12,6 @@ namespace RadyoServis
     public interface IRadyo
     {
         [OperationContract]
-        string IsServiceAwake();
+        bool IsServiceAwake();
     }
 }
