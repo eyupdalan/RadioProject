@@ -1,17 +1,25 @@
-﻿using System;
+﻿using RadyoTypes;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
 
 namespace RadyoServis
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IRadyo" in both code and config file together.
     [ServiceContract]
     public interface IRadyo
     {
         [OperationContract]
         bool IsServiceAwake();
+
+        [OperationContract]
+        List<Record> GetAllRecord();
+
+        [OperationContract]
+        Record GetRecordById(int id);
+
+        [OperationContract]
+        List<Casette> GetAllCasette();
+
+        [OperationContract]
+        Casette GetCasetteById(int id);
     }
 }

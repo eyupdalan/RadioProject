@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadyoAPI", "RadyoAPI\RadyoA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadyoWeb", "RadyoWeb\RadyoWeb.csproj", "{39A4E912-AA3E-4239-BED7-E041C16CF81D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadyoTypes", "RadyoTypes\RadyoTypes.csproj", "{2B4C9A98-CB6C-44AF-BA56-EAB1F786934C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{39A4E912-AA3E-4239-BED7-E041C16CF81D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39A4E912-AA3E-4239-BED7-E041C16CF81D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39A4E912-AA3E-4239-BED7-E041C16CF81D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B4C9A98-CB6C-44AF-BA56-EAB1F786934C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B4C9A98-CB6C-44AF-BA56-EAB1F786934C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B4C9A98-CB6C-44AF-BA56-EAB1F786934C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B4C9A98-CB6C-44AF-BA56-EAB1F786934C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

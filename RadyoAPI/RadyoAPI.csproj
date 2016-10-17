@@ -83,11 +83,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ClientService.cs" />
+    <Compile Include="Controllers\CasetteController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -111,6 +114,10 @@
     <ProjectReference Include="..\RadyoServis\RadyoServis.csproj">
       <Project>{cc5e34e2-d47e-46d1-94f3-bcca02442896}</Project>
       <Name>RadyoServis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RadyoTypes\RadyoTypes.csproj">
+      <Project>{2B4C9A98-CB6C-44AF-BA56-EAB1F786934C}</Project>
+      <Name>RadyoTypes</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
