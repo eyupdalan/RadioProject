@@ -116,7 +116,7 @@
       <Name>RadyoServis</Name>
     </ProjectReference>
     <ProjectReference Include="..\RadyoTypes\RadyoTypes.csproj">
-      <Project>{2B4C9A98-CB6C-44AF-BA56-EAB1F786934C}</Project>
+      <Project>{2b4c9a98-cb6c-44af-ba56-eab1f786934c}</Project>
       <Name>RadyoTypes</Name>
     </ProjectReference>
   </ItemGroup>
