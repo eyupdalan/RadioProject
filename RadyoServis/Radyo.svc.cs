@@ -20,12 +20,12 @@ namespace RadyoServis
 
         public List<Record> GetAllRecord()
         {
-            return Db.Fetch<Record>("; EXEC spGetAllRecord");
+            return Db.Fetch<Record>("; EXEC Radyo.dbo.spGetAllRecord");
         }
 
         public Record GetRecordById(int id)
         {
-            return Db.SingleOrDefault<Record>("; EXEC spGetRecordById " + id);
+            return Db.SingleOrDefault<Record>("; EXEC Radyo.dbo.spGetRecordById " + id);
         }
 
         public List<Record> GetRecordByColumns(Record record)
@@ -37,12 +37,19 @@ namespace RadyoServis
 
         public List<Casette> GetAllCasette()
         {
-            return Db.Fetch<Casette>("; EXEC spGetAllCasette");
+            return Db.Fetch<Casette>("; EXEC Radyo.dbo.spGetAllCasette");
         }
 
         public Casette GetCasetteById(int id)
         {
-            return Db.SingleOrDefault<Casette>("; EXEC spGetCasetteById " + id);
+            return Db.SingleOrDefault<Casette>("; EXEC Radyo.dbo.spGetCasetteById " + id);
+        }
+
+        public List<Casette> GetCasetteByColumns(Casette casette)
+        {
+
+            return Db.Fetch<Casette>("; EXEC Radyo.dbo.spGetCasetteByColumns " + ServiceHelper.CountParams(casette),
+                                    ServiceHelper.ObjectToSqlParameter(casette).ToArray());
         }
     }
 }
