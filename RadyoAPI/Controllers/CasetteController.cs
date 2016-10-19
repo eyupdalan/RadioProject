@@ -8,9 +8,10 @@ namespace RadyoAPI.Controllers
     {
         ClientService<RadyoServis.IRadyo> service = new ClientService<RadyoServis.IRadyo>();
 
-        public List<Casette> Get()
+        public List<Record> Get()
         {
-            return service.Proxy.GetAllCasette();
+            Record record = new Record { BookId = 4, TopicId = 5 };
+            return service.Proxy.GetRecordByColumns(record);
         }
     }
 }

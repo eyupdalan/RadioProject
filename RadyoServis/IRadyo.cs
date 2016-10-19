@@ -17,6 +17,9 @@ namespace RadyoServis
         Record GetRecordById(int id);
 
         [OperationContract]
+        List<Record> GetRecordByColumns(Record record);
+
+        [OperationContract]
         List<Casette> GetAllCasette();
 
         [OperationContract]

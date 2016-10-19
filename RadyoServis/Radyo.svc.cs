@@ -1,6 +1,7 @@
 ﻿using PetaPoco;
 using RadyoTypes;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace RadyoServis
@@ -11,7 +12,7 @@ namespace RadyoServis
 
         public Radyo()
         {
-            Db = new Database("con");
+            Db = new Database("con2");
         }
         public bool IsServiceAwake()
         {
@@ -26,6 +27,12 @@ namespace RadyoServis
         public Record GetRecordById(int id)
         {
             return Db.SingleOrDefault<Record>("EXEC spGetRecordById " + id);
+        }
+
+        public List<Record> GetRecordByColumns(Record record)
+        {
+            
+            return Db.Query<Record>("; EXEC Radyo.dbo.spGetRecordByColumns ", ServiceHelper.ObjectToSqlParameter(record).ToArray()).ToList();
         }
 
         public List<Casette> GetAllCasette()

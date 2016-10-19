@@ -80,6 +80,7 @@
     <Compile Include="Radyo.svc.cs">
       <DependentUpon>Radyo.svc</DependentUpon>
     </Compile>
+    <Compile Include="ServiceHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
