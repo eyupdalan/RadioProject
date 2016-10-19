@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ServiceModel;
 
-namespace RadyoServis
+namespace RadyoTypes
 {
     [ServiceContract]
     public interface IRadyo

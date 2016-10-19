@@ -4,9 +4,9 @@ using System.Web.Http;
 
 namespace RadyoAPI.Controllers
 {
-    public class CasetteController : ApiController
+    public class RecordController : ApiController
     {
-        ClientService<RadyoServis.IRadyo> service = new ClientService<RadyoServis.IRadyo>();
+        ClientService<IRadyo> service = new ClientService<IRadyo>();
 
         public List<Record> Get()
         {

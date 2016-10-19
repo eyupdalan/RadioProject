@@ -1,10 +1,4 @@
-﻿using RadyoServis;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace RadyoAPI.Controllers
 {
@@ -12,12 +6,8 @@ namespace RadyoAPI.Controllers
     {
         public object Get()
         {
-            ClientService<IRadyo> service = new ClientService<IRadyo>();
-            return new
-            {
-                IsServiceUp = service.Proxy.IsServiceAwake()
-            };
 
+            return new { data="Awake" };
         }
     }
 }

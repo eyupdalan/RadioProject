@@ -1,8 +1,6 @@
 ﻿using PetaPoco;
 using RadyoTypes;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
 
 namespace RadyoServis
 {
@@ -14,6 +12,7 @@ namespace RadyoServis
         {
             Db = new Database("con2"); // Default : con
         }
+
         public bool IsServiceAwake()
         {
             return true;

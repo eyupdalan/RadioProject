@@ -90,7 +90,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ClientService.cs" />
-    <Compile Include="Controllers\CasetteController.cs" />
+    <Compile Include="Controllers\RecordController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -111,10 +111,6 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RadyoServis\RadyoServis.csproj">
-      <Project>{cc5e34e2-d47e-46d1-94f3-bcca02442896}</Project>
-      <Name>RadyoServis</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RadyoTypes\RadyoTypes.csproj">
       <Project>{2b4c9a98-cb6c-44af-ba56-eab1f786934c}</Project>
       <Name>RadyoTypes</Name>
