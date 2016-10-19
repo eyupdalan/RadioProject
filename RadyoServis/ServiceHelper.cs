@@ -1,7 +1,10 @@
 ﻿using RadyoTypes;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Reflection;
 
 namespace RadyoServis
 {
@@ -24,6 +27,7 @@ namespace RadyoServis
 
                         list.Add(GetInputParameter(item.Name, value));
                     }
+                   
                 }
                 catch
                 {
@@ -35,7 +39,30 @@ namespace RadyoServis
 
         public static SqlParameter GetInputParameter(string name, object value)
         {
-            return (new SqlParameter("@@" + name, value));
+            return (new SqlParameter("@" + name, value));
         }
+
+        public static string CountParams(IEntity record)
+        {
+            string paramString = "";
+
+            for(int i =0; i< NonNullPropertiesCount(record); i++)
+            {
+                if (i != 0)
+                    paramString += ",";
+
+                paramString += "@" + i.ToString();
+            }
+            return paramString;
+        }
+
+        public static int NonNullPropertiesCount(object entity)
+        {
+            return entity.GetType()
+                         .GetProperties()
+                         .Select(x => x.GetValue(entity, null))
+                         .Count(v => v != null && (int)v != 0 ) ;
+        }
+
     }
 }

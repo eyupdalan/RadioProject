@@ -12,7 +12,7 @@ namespace RadyoServis
 
         public Radyo()
         {
-            Db = new Database("con2");
+            Db = new Database("con2"); // Default : con
         }
         public bool IsServiceAwake()
         {
@@ -21,28 +21,29 @@ namespace RadyoServis
 
         public List<Record> GetAllRecord()
         {
-            return Db.Query<Record>("EXEC spGetAllRecord").ToList();
+            return Db.Fetch<Record>("; EXEC spGetAllRecord");
         }
 
         public Record GetRecordById(int id)
         {
-            return Db.SingleOrDefault<Record>("EXEC spGetRecordById " + id);
+            return Db.SingleOrDefault<Record>("; EXEC spGetRecordById " + id);
         }
 
         public List<Record> GetRecordByColumns(Record record)
         {
-            
-            return Db.Query<Record>("; EXEC Radyo.dbo.spGetRecordByColumns ", ServiceHelper.ObjectToSqlParameter(record).ToArray()).ToList();
+
+            return Db.Fetch<Record>("; EXEC Radyo.dbo.spGetRecordByColumns " + ServiceHelper.CountParams(record), 
+                                    ServiceHelper.ObjectToSqlParameter(record).ToArray());
         }
 
         public List<Casette> GetAllCasette()
         {
-            return Db.Query<Casette>("EXEC spGetAllCasette").ToList();
+            return Db.Fetch<Casette>("; EXEC spGetAllCasette");
         }
 
         public Casette GetCasetteById(int id)
         {
-            return Db.SingleOrDefault<Casette>("EXEC spGetCasetteById " + id);
+            return Db.SingleOrDefault<Casette>("; EXEC spGetCasetteById " + id);
         }
     }
 }
