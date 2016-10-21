@@ -14,7 +14,7 @@ export default {
     output: {
         path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
         publicPath: '/',
-        filename: 'app.js'
+        filename: 'bundle.js'
     },
     devServer: {
         contentBase: './src'
