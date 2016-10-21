@@ -111,6 +111,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RadyoCommon\RadyoCommon.csproj">
+      <Project>{C5CC21A7-E390-4B9A-BDC2-52AEBA89222D}</Project>
+      <Name>RadyoCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RadyoTypes\RadyoTypes.csproj">
       <Project>{2b4c9a98-cb6c-44af-ba56-eab1f786934c}</Project>
       <Name>RadyoTypes</Name>

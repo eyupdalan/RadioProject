@@ -1,5 +1,8 @@
-﻿using RadyoTypes;
+﻿using RadyoCommon;
+using RadyoTypes;
+using System;
 using System.Collections.Generic;
+using System.ServiceModel;
 using System.Web.Http;
 
 namespace RadyoAPI.Controllers
@@ -34,9 +37,16 @@ namespace RadyoAPI.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Record GetById(int id)
+        public IHttpActionResult GetById(int id)
         {
-            return service.Proxy.GetRecordById(id);
+            Record record = new Record();
+            try { record = service.Proxy.GetRecordById(id); }
+            catch(FaultException ex)
+            {
+                return InternalServerError(ex);
+            }
+
+            return Ok(record);
         }
 
 

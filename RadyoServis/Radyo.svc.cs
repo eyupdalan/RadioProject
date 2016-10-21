@@ -1,16 +1,17 @@
 ﻿using PetaPoco;
+using RadyoCommon;
 using RadyoTypes;
 using System.Collections.Generic;
 
 namespace RadyoServis
 {
-    public class Radyo : IRadyo
+    public class Radyo : ServiceBase, IRadyo
     {
         private Database Db;
 
         public Radyo()
         {
-            Db = new Database("con2"); // Default : con
+            Db = new Database("con2"); // Default : con1
         }
 
         public bool IsServiceAwake()
@@ -20,36 +21,66 @@ namespace RadyoServis
 
         public List<Record> GetAllRecord()
         {
-            return Db.Fetch<Record>("; EXEC Radyo.dbo.spGetAllRecord");
+            List<Record> list = new List<Record>();
+            RunInTryCatch(() =>
+            {
+                list = Db.Fetch<Record>("; EXEC Radyo.dbo.spGetAllRecord");
+            });
+
+            return list;
         }
 
         public Record GetRecordById(int id)
         {
-            return Db.SingleOrDefault<Record>("; EXEC Radyo.dbo.spGetRecordById " + id);
+            Record record = new Record();
+            RunInTryCatch(() =>
+            {
+                record = Db.SingleOrDefault<Record>("; EXEC Radyo.dbo.spGetRecordByIds " + id);
+            });
+            return record;
         }
 
         public List<Record> GetRecordByColumns(Record record)
         {
-
-            return Db.Fetch<Record>("; EXEC Radyo.dbo.spGetRecordByColumns " + ServiceHelper.CountParams(record), 
+            List<Record> list = new List<Record>();
+            RunInTryCatch(() =>
+            {
+                list = Db.Fetch<Record>("; EXEC Radyo.dbo.spGetRecordByColumns " + ServiceHelper.CountParams(record),
                                     ServiceHelper.ObjectToSqlParameter(record).ToArray());
+            });
+
+            return list;
         }
 
         public List<Casette> GetAllCasette()
         {
-            return Db.Fetch<Casette>("; EXEC Radyo.dbo.spGetAllCasette");
+            List<Casette> list = new List<Casette>();
+            RunInTryCatch(() =>
+            {
+                list = Db.Fetch<Casette>("; EXEC Radyo.dbo.spGetAllCasette");
+            });
+            return list;
         }
 
         public Casette GetCasetteById(int id)
         {
-            return Db.SingleOrDefault<Casette>("; EXEC Radyo.dbo.spGetCasetteById " + id);
+            Casette casette = new Casette();
+            RunInTryCatch(() =>
+            {
+                casette = Db.SingleOrDefault<Casette>("; EXEC Radyo.dbo.spGetCasetteById " + id);
+            });
+            return casette;
         }
 
         public List<Casette> GetCasetteByColumns(Casette casette)
         {
-
-            return Db.Fetch<Casette>("; EXEC Radyo.dbo.spGetCasetteByColumns " + ServiceHelper.CountParams(casette),
+            List<Casette> list = new List<Casette>();
+            RunInTryCatch(() =>
+            {
+                Db.Fetch<Casette>("; EXEC Radyo.dbo.spGetCasetteByColumns " + ServiceHelper.CountParams(casette),
                                     ServiceHelper.ObjectToSqlParameter(casette).ToArray());
+            });
+            return list;
         }
     }
 }

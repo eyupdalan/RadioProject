@@ -66,7 +66,9 @@
       <LastGenOutput>Database.cs</LastGenOutput>
     </Content>
     <Content Include="Radyo.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Generated\Database.cs">
@@ -100,6 +102,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RadyoCommon\RadyoCommon.csproj">
+      <Project>{c5cc21a7-e390-4b9a-bdc2-52aeba89222d}</Project>
+      <Name>RadyoCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RadyoTypes\RadyoTypes.csproj">
       <Project>{2b4c9a98-cb6c-44af-ba56-eab1f786934c}</Project>
       <Name>RadyoTypes</Name>
